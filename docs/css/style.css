@@ -81,8 +81,10 @@ html, body, div
   list-style:none;
   height:40px;
   padding:0;
-  background: #009b88;
-  border-radius:5px;
+  background: #f4f4f4;
+	border-color: #009b88;
+	border-style: double;
+	border-radius:5px;
   width:135px;
 }
 
