@@ -7,7 +7,7 @@ html, body, div
 
 .top
 {
-	background-color:	#add8e6;
+	background-color:	#006400;
 	color: white;
 	text-align: center;
 }
@@ -15,7 +15,7 @@ html, body, div
 .buttons
 {
 	margin:0 auto;
-	background-color:	#add8e6;
+	background-color:	#006400;
 	text-align: center;
 }
 
@@ -64,4 +64,8 @@ html, body, div
 .buttons ul li + li {
   border-right:none;
   width:134px;
+}
+
+.hw1, .hw2, .hw3, .hw4 {
+	padding: 30px;
 }
