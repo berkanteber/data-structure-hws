@@ -1,0 +1,19 @@
+1) t1.txt
+* sabanci 1 201
+
+2) t2.txt
+* zonked abandoned boundary call seat 0
+
+3) t3.txt
+* understood great 1 89
+* charming slap 3 41, 47, 135
+
+4) t4.txt
+* rule zoo yak mass 0
+* unequaled womanly wooden 0
+
+5) t5.txt
+* ambitious  fluffy  appear  low  secretary  hesitant  elastic  base  marvelous  tumble  damaged  next  wave  afford  smash  call  faded  birds  deserve  envious  shallow  yak  successful  wrathful  utter  book  shame  important  wet  beds  greet  ticket  aberrant  paddle  exotic  desk  pig  hammer  race  greedy  computer  bead  incredible  condition  disapprove  calculating  lace  rub  careful  hulking 1 1
+
+6) t6.txt
+* No querry
