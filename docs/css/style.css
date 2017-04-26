@@ -73,7 +73,6 @@ html, body, div
 .button-pdf
 {
 	margin:0 auto;
-	background-color:	#009b88;
 	text-align: center;
 }
 
@@ -82,16 +81,14 @@ html, body, div
   list-style:none;
   height:40px;
   padding:0;
-  background: #f4f4f4;
+  background: #009b88;
   border-radius:5px;
-  border:1px solid #e0e0e0;
   width:135px;
 }
 
 .button-pdf li {
   width:134px;
   float:left;
-  border-right:1px solid #e0e0e0;
   height:40px;
 }
 
@@ -117,9 +114,4 @@ html, body, div
   font-size:14px;
   display:block;
   color:#222;
-}
-
-.buttons ul li {
-  border-right:none;
-  width:134px;
 }
