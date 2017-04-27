@@ -12,14 +12,18 @@ using namespace std;
 
 #include "mpq.cpp"
 
+vector<int> heights;	// vector for heights of the buildings
+
 // for array of x coordinates
 class coordinate
 {
-public:
+public:	
 	int id, side, xcoord;
 
-	bool operator<(coordinate rhs) {return (xcoord<rhs.xcoord)||(xcoord==rhs.xcoord && side < rhs.side) || (xcoord==rhs.xcoord && side == rhs.side && side == 1 && height > rhs.height) || (xcoord == rhs.xcoord && side == rhs.side && side == 2 && height < rhs.height);}
-	
+	bool operator<(coordinate rhs) {return 	(xcoord < rhs.xcoord) || (xcoord == rhs.xcoord && side < rhs.side) ||
+						(xcoord == rhs.xcoord && side == rhs.side && side == 1 && heights[id] > heights[rhs.id]) ||
+						(xcoord == rhs.xcoord && side == rhs.side && side == 2 && heights[id] < heights[rhs.id]); }
+
 	coordinate operator=(coordinate rhs)
 	{
 		xcoord = rhs.xcoord;
@@ -39,7 +43,7 @@ void percDown(vector<coordinate> & a, int i, int n)
 	{
 		// left child
 		child = 2*i+1;
-
+		
 		// compare left and right
 		if (child != n-1 && a[child] < a[child+1])
 			child++;
@@ -50,15 +54,15 @@ void percDown(vector<coordinate> & a, int i, int n)
 		else
 			break;
 	}
-
+	
 	a[i] = tmp;
 }
 
 // sort an array
 void heapsort(vector<coordinate> & a)
-{
+{	
 	// empty array
-	if(!a.size())
+	if(!a.size())	
 		return;
 
 	// build heap
@@ -72,7 +76,7 @@ void heapsort(vector<coordinate> & a)
 		coordinate tmp = a[0];
 		a[0] = a[j];
 		a[j] = tmp;
-
+		
 		// percolate down 0th element
 		percDown(a, 0, j);
 	}
@@ -90,20 +94,20 @@ int main ()
 	if (num == 0)
 	{
 		input.close();
-
+		
 		cout << 0 << " " << 0 << endl;
-
+	
 		return 0;
 	}
 
-	vector<int> heights(num+1);		// heights of the building - 1 to num
+	heights.reserve(num+1);			// reserve for the heights
 	vector<coordinate> coord(2*num);	// x-coordinates, side, id
-
+	
 	// for each building
 	for (int i = 1; i <= num; i++)
 	{
-		input >> left >> heights[i] >> right;
-
+		input >> left >> heights[i] >> right;	
+	
 		// left x-coord
 		coord[ctr].id = i;
 		coord[ctr].side = 1;
@@ -116,13 +120,13 @@ int main ()
 		coord[ctr].xcoord = right;
 		ctr++;
 	}
-
+	
 	// sort the coordinate array
 	heapsort(coord);
 
 	// heap
 	MPQ myheap(num);
-
+	
 	int currentMax = -1;
 
 	// in case of there is no building at 0
@@ -142,7 +146,7 @@ int main ()
 
 		// if there is any change, print it
 		if (myheap.getMax() != currentMax)
-		{
+		{	
 			currentMax = myheap.getMax();
 			cout << coord[i].xcoord << " " << currentMax << endl;
 		}
@@ -151,7 +155,7 @@ int main ()
 	// for the end (actually there is no such case in practice, but i put it to be safe)
 	if (currentMax != 0)
 		cout << coord[2*num-1].xcoord << " " << 0 << endl;
-
+	
 	input.close();
 
 	return 0;
